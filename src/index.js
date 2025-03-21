@@ -9,10 +9,10 @@ let accessToken = null;
 let tokenExpiryTime = 0;
 
 const endpoints = {
-    prime: "http://20.244.56.144/test/primes",
-    fibonacci: "http://20.244.56.144/test/fibo",
-    even: "http://20.244.56.144/test/even",
-    random: "http://20.244.56.144/test/rand"
+    p: "http://20.244.56.144/test/primes",
+    f: "http://20.244.56.144/test/fibo",
+    e: "http://20.244.56.144/test/even",
+    r: "http://20.244.56.144/test/rand"
 };
 
 const authDetails = {
@@ -57,7 +57,7 @@ async function fetchNumbers(type) {
 
 app.get("/numbers/:type", async (req, res) => {
     const type = req.params.type;
-    if (!["prime", "fibonacci", "random", "even"].includes(type)) {
+    if (!["p", "f", "r", "e"].includes(type)) {
         return res.status(400).json({ error: "Invalid type" });
     }
 
